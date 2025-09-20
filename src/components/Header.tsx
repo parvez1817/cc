@@ -31,11 +31,17 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            <Button variant="cultural" size="sm" className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-saffron/20">
+              Language
+            </Button>
             <button onClick={() => scrollToSection('discover')} className="text-foreground hover:text-saffron transition-all duration-300 font-medium relative hover:scale-105 hover:-translate-y-0.5">
               Discover
             </button>
             <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-saffron transition-all duration-300 font-medium relative hover:scale-105 hover:-translate-y-0.5">
               About
+            </button>
+            <button onClick={() => scrollToSection('pricing')} className="text-foreground hover:text-saffron transition-all duration-300 font-medium relative hover:scale-105 hover:-translate-y-0.5">
+              Pricing
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-saffron transition-all duration-300 font-medium relative hover:scale-105 hover:-translate-y-0.5">
               Contact
@@ -59,6 +65,9 @@ const Header = () => {
               </button>
               <button onClick={() => scrollToSection('about')} className="text-left text-foreground hover:text-saffron transition-all duration-300 font-medium hover:translate-x-2 hover:bg-saffron/5 p-2 rounded-lg -m-2">
                 About
+              </button>
+              <button onClick={() => scrollToSection('pricing')} className="text-left text-foreground hover:text-saffron transition-all duration-300 font-medium hover:translate-x-2 hover:bg-saffron/5 p-2 rounded-lg -m-2">
+                Pricing
               </button>
               <button onClick={() => scrollToSection('contact')} className="text-left text-foreground hover:text-saffron transition-all duration-300 font-medium hover:translate-x-2 hover:bg-saffron/5 p-2 rounded-lg -m-2">
                 Contact

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Eye } from 'lucide-react';
 import indiaMapImage from '@/assets/india-map.jpg';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const InteractiveMapSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const [selectedState, setSelectedState] = useState<string | null>(null);
 
   const states = [
@@ -14,7 +16,7 @@ const InteractiveMapSection = () => {
       position: { top: "75%", left: "75%" }
     },
     {
-      name: "Rajasthan", 
+      name: "Rajasthan",
       highlight: "Desert Festivals, Palaces, Folk Music",
       description: "Experience royal heritage and vibrant desert culture",
       position: { top: "35%", left: "25%" }
@@ -34,8 +36,8 @@ const InteractiveMapSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/10 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-[#1C1917] text-white">
+      <div ref={ref} className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isVisible ? 'animate-on-scroll' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16 animate-slide-in-up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-6">
@@ -109,9 +111,7 @@ const InteractiveMapSection = () => {
                         <Eye className="mr-2" size={20} />
                         Explore in VR
                       </Button>
-                      <Button variant="cultural" size="lg">
-                        Learn More
-                      </Button>
+                    
                     </div>
                   </div>
                 ))}

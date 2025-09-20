@@ -1,8 +1,11 @@
 import React from 'react';
 import { Clock, MapPin, BookOpen, Music } from 'lucide-react';
 import culturalIcons from '@/assets/cultural-icons.jpg';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const DiscoverSection = () => {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
   const features = [
     {
       icon: <MapPin className="w-8 h-8 text-saffron" />,
@@ -28,7 +31,7 @@ const DiscoverSection = () => {
 
   return (
     <section id="discover" className="py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isVisible ? 'animate-on-scroll' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16 animate-slide-in-up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-6">
@@ -48,21 +51,21 @@ const DiscoverSection = () => {
           <div className="flex justify-center items-center space-x-8 mb-12">
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-saffron to-gold rounded-full flex items-center justify-center mb-4 shadow-saffron">
-                <span className="text-foreground font-bold text-lg">古</span>
+                <span className="text-foreground font-bold text-lg">🔥</span>
               </div>
               <span className="text-sm font-medium text-muted-foreground">Ancient</span>
             </div>
             <div className="flex-1 h-1 bg-gradient-to-r from-saffron via-indigo to-peacock rounded"></div>
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-indigo to-peacock rounded-full flex items-center justify-center mb-4 shadow-cultural">
-                <span className="text-foreground font-bold text-lg">中</span>
+                <span className="text-foreground font-bold text-lg">🕯</span>
               </div>
               <span className="text-sm font-medium text-muted-foreground">Medieval</span>
             </div>
             <div className="flex-1 h-1 bg-gradient-to-r from-indigo via-peacock to-maroon rounded"></div>
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-peacock to-maroon rounded-full flex items-center justify-center mb-4 shadow-cultural">
-                <span className="text-foreground font-bold text-lg">近</span>
+                <span className="text-foreground font-bold text-lg">🔦</span>
               </div>
               <span className="text-sm font-medium text-muted-foreground">Modern</span>
             </div>

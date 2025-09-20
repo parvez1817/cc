@@ -187,6 +187,12 @@ All colors MUST be HSL for proper theming
     animation: slide-in-up 0.8s ease-out;
   }
 
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slide-in-up 0.8s ease-out forwards;
+  }
+
   /* Typography styles */
   .heading-serif {
     font-family: 'Playfair Display', serif;

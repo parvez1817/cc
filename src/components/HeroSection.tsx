@@ -2,8 +2,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Play, ArrowDown } from 'lucide-react';
 import heroImage from '@/assets/hero-vr-india.jpg';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const HeroSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const scrollToDiscover = () => {
     const element = document.getElementById('discover');
     if (element) {
@@ -25,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div ref={ref} className={`relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center ${isVisible ? 'animate-on-scroll' : ''}`}>
         <div className="max-w-4xl mx-auto animate-slide-in-up">
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-bold mb-6 leading-tight">

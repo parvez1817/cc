@@ -1,13 +1,18 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Users, Clock, ArrowRight } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const CallToActionSection = () => {
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>();
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-card/20">
+    <section id="contact" ref={ref} className="py-20 bg-gradient-to-b from-background to-card/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main CTA */}
-        <div className="text-center mb-16 animate-slide-in-up">
+        <div className={`text-center mb-16 transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-playfair font-bold mb-6">
             <span className="bg-gradient-to-r from-saffron via-gold to-indigo bg-clip-text text-transparent">
               Ready to Travel
@@ -42,7 +47,9 @@ const CallToActionSection = () => {
         </div>
 
         {/* Partnership CTA */}
-        <div className="max-w-4xl mx-auto">
+        <div className={`max-w-4xl mx-auto transition-all duration-1000 ease-out delay-200 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border p-8 sm:p-12">
             <div className="text-center mb-8">
               <Users className="w-12 h-12 text-peacock mx-auto mb-4" />
@@ -86,7 +93,9 @@ const CallToActionSection = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="mt-16 text-center">
+        <div className={`mt-16 text-center transition-all duration-1000 ease-out delay-400 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <p className="text-muted-foreground mb-4">
             Questions? We're here to help you embark on your cultural journey.
           </p>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const Footer = () => {
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>();
+
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Features', href: '#discover' },
@@ -19,7 +22,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card/30 border-t border-border">
+    <footer ref={ref} className={`bg-card/30 border-t border-border transition-all duration-1000 ease-out ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -104,16 +109,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Partnership Logos Section */}
-        <div className="border-t border-border pt-8 mb-8">
-          <h4 className="text-center font-semibold text-foreground mb-6">Proud Partners</h4>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="text-muted-foreground font-medium">Ministry of Tourism</div>
-            <div className="text-muted-foreground font-medium">Archaeological Survey</div>
-            <div className="text-muted-foreground font-medium">NCERT</div>
-            <div className="text-muted-foreground font-medium">National Museum</div>
-          </div>
-        </div>
+        
 
         {/* Bottom Bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center">

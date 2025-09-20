@@ -1,11 +1,14 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Gamepad2, GraduationCap, Users, Star } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const DualPurposeSection = () => {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-r from-background via-muted/10 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gradient-to-r from- to-[#FF7A00] text-white">
+      <div ref={ref} className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isVisible ? 'animate-on-scroll' : ''}`}>
         {/* Header */}
         <div className="text-center mb-16 animate-slide-in-up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-6">
@@ -80,15 +83,15 @@ const DualPurposeSection = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-indigo/20">
+              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-white/20">
                 <Users className="w-6 h-6 text-indigo mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Guided Narration</h4>
-                  <p className="text-muted-foreground">Expert historians guide you through each experience with detailed explanations</p>
+                  <p className="text-muted-foreground">Expert historians guide you through each experience with explanations</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-indigo/20">
+              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-white/20">
                 <Users className="w-6 h-6 text-indigo mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Interactive Facts</h4>
@@ -96,7 +99,7 @@ const DualPurposeSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-indigo/20">
+              <div className="flex items-start space-x-4 p-4 bg-card/30 rounded-lg border border-white/20">
                 <Users className="w-6 h-6 text-indigo mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Classroom Integration</h4>
